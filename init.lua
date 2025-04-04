@@ -948,15 +948,23 @@ require('lazy').setup({
   --     vim.cmd.colorscheme 'tokyonight-night'
   --   end,
   -- },
+  -- {
+  --   'apiarian/vim-colors-paramount',
+  --   priority = 1000,
+  --   config = function()
+  --     vim.cmd.colorscheme 'paramount'
+  --     vim.opt.background = 'dark'
+  --   end,
+  -- },
   {
-    'apiarian/vim-colors-paramount',
+    'rektrex/micro.vim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'paramount'
+      vim.opt.termguicolors = true
       vim.opt.background = 'dark'
+      vim.cmd.colorscheme 'micro'
     end,
   },
-
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
