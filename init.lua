@@ -114,9 +114,9 @@ vim.opt.showmode = false
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
+-- vim.schedule(function()
+--   vim.opt.clipboard = 'unnamedplus'
+-- end)
 
 -- Enable break indent
 vim.opt.breakindent = true
@@ -726,6 +726,7 @@ require('lazy').setup({
         -- gopls = {},
         -- pyright = {},
         rust_analyzer = {},
+        gopls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -991,7 +992,30 @@ require('lazy').setup({
       --  and try some other statusline plugin
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
-      statusline.setup { use_icons = vim.g.have_nerd_font }
+      statusline.setup {
+        use_icons = vim.g.have_nerd_font,
+        content = {
+          active = function()
+            local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
+            local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
+            local lsp = MiniStatusline.section_lsp { trunc_width = 75 }
+            local filename = MiniStatusline.section_filename { trunc_width = 140 }
+            local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
+            local location = MiniStatusline.section_location { trunc_width = 75 }
+
+            return MiniStatusline.combine_groups {
+              { hl = mode_hl, strings = { mode } },
+              { hl = 'MiniStatuslineDevinfo', strings = { diagnostics, lsp } },
+              '%<', -- Mark general truncate point
+              { hl = 'MiniStatuslineFilename', strings = { filename } },
+              '%=', -- End left alignment
+              { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+              { hl = mode_hl, strings = { location } },
+            }
+          end,
+          inactive = nil,
+        },
+      }
 
       -- You can configure sections in the statusline by overriding their
       -- default behavior. For example, here we set the section for
