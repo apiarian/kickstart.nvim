@@ -733,7 +733,7 @@ require('lazy').setup({
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
-        rust_analyzer = {},
+        -- rust_analyzer = {},
         gopls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
@@ -1123,6 +1123,12 @@ require('lazy').setup({
         ft = { 'markdown', 'Avante' },
       },
     },
+  },
+
+  {
+    'mrcjkb/rustaceanvim',
+    version = '^6', -- Recommended
+    lazy = false, -- This plugin is already lazy
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
