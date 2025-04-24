@@ -93,6 +93,9 @@ vim.g.maplocalleader = ' '
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- Set to true if you want to use AI assistants
+vim.g.use_ai_assistants = true
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -1065,6 +1068,7 @@ require('lazy').setup({
 
   {
     'yetone/avante.nvim',
+    enabled = vim.g.use_ai_assistants,
     event = 'VeryLazy',
     version = false, -- Never set this value to "*"! Never!
     opts = {
