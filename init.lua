@@ -1193,5 +1193,9 @@ require('lazy').setup({
   },
 })
 
+vim.keymap.set('n', 'K', function()
+  vim.lsp.buf.hover { border = 'single' }
+end)
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
