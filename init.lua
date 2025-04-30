@@ -285,6 +285,16 @@ require('lazy').setup({
       'nvim-telescope/telescope.nvim', -- optional
     },
   },
+  {
+    't9md/vim-quickhl',
+    config = function()
+      vim.g.quickhl_manual_enable_at_start = true
+      vim.keymap.set('n', '<leader>kt', '<plug>(quickhl-manual-this)', { desc = '[K]eyword [T]oggle' })
+      vim.keymap.set('n', '<leader>kc', '<plug>(quickhl-manual-reset)', { desc = '[K]eyword [C]lear' })
+      vim.keymap.set('x', '<leader>kt', '<plug>(quickhl-manual-reset)', { desc = '[K]eyword [T]oggle' })
+      vim.keymap.set('x', '<leader>kc', '<plug>(quickhl-manual-this)', { desc = '[K]eyword [C]lear' })
+    end,
+  },
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
