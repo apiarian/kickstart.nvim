@@ -989,7 +989,7 @@ require('lazy').setup({
   --   end,
   -- },
   {
-    'ewilazarus/preto',
+    'apiarian/preto',
     priority = 1000,
     config = function()
       vim.opt.termguicolors = true
