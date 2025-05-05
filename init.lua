@@ -295,6 +295,7 @@ require('lazy').setup({
       vim.keymap.set('x', '<leader>kc', '<plug>(quickhl-manual-this)', { desc = '[K]eyword [C]lear' })
     end,
   },
+  'm4xshen/autoclose.nvim',
 
   -- NOTE: Plugins can also be added by using a table,
   -- with the first argument being the link and the following
