@@ -772,7 +772,7 @@ require('lazy').setup({
             },
           },
         },
-        jedi_language_server = {},
+        pylsp = {},
       }
 
       -- Ensure the servers and tools above are installed
