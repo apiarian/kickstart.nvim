@@ -1165,5 +1165,7 @@ vim.keymap.set('n', 'K', function()
   vim.lsp.buf.hover { border = 'single' }
 end)
 
+vim.keymap.set('n', '<leader>w', '<C-w>=', { desc = 'equalize [w]indows' })
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
