@@ -854,6 +854,7 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        terraform = { 'terraform_fmt' },
       },
     },
   },
@@ -1166,6 +1167,11 @@ vim.keymap.set('n', 'K', function()
 end)
 
 vim.keymap.set('n', '<leader>w', '<C-w>=', { desc = 'equalize [w]indows' })
+
+vim.keymap.set('n', '<leader>cc', function()
+  vim.b.completion = not vim.b.completion
+  print('Code completion ' .. (vim.b.completion and 'enabled' or 'disabled'))
+end, { desc = '[c]ode [c]ompletion toggle' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
